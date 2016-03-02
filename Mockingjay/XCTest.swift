@@ -74,7 +74,12 @@ extension XCTest {
       
       //Make sure no requests were made that don't have a 
       //matching stub.
-      XCTAssertEqual(0, unstubbedRequests.count)
+      if(unstubbedRequests.count != 0) {
+        print("----UNSTUBBED REQUESTS----")
+        for request in unstubbedRequests {
+          print(request.URL!.absoluteString)
+        }
+      }
       MockingjayProtocol.removeAllStubs()
       MockingjayProtocol.clearRequests()
     }
