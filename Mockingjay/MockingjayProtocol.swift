@@ -90,7 +90,7 @@ public class MockingjayProtocol : NSURLProtocol {
 
   /// Returns whether there is a registered stub handler for the given request.
   override public class func canInitWithRequest(request:NSURLRequest) -> Bool {
-    return stubForRequest(request) != nil
+    return true
   }
 
   override public class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
