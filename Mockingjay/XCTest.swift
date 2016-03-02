@@ -70,13 +70,13 @@ extension XCTest {
   func mockingjayTearDown() {
     mockingjayTearDown()
     
-    //Confirm that there are no requests made that weren't stubbed on
-    //tear down. 
-    XCTAssertEqual(0, unstubbedRequests.count)
-    MockingjayProtocol.clearRequests()
-    
     if mockingjayRemoveStubOnTearDown {
       MockingjayProtocol.removeAllStubs()
+      
+      //Confirm that there are no requests made that weren't stubbed on
+      //tear down.
+      XCTAssertEqual(0, unstubbedRequests.count)
+      MockingjayProtocol.clearRequests()
     }
   }
 }
