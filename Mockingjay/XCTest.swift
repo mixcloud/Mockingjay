@@ -64,6 +64,7 @@ extension XCTest {
   func mockingjayTearDown() {
     mockingjayTearDown()
 
+    MockingjayProtocol.clearRequests()
     if mockingjayRemoveStubOnTearDown {
       MockingjayProtocol.removeAllStubs()
     }
