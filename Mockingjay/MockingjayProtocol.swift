@@ -27,23 +27,16 @@ public func ==(lhs:Stub, rhs:Stub) -> Bool {
 }
 
 var stubs = [Stub]()
-var _stubbedRequests = [NSURLRequest]()
-var _unstubbedRequests = [NSURLRequest]()
+var _requests = [NSURLRequest]()
 
 public class MockingjayProtocol : NSURLProtocol {
   // MARK: Stubs
   private var enableDownloading = true
   private let operationQueue = NSOperationQueue()
   
-  public class var stubbedRequests:[NSURLRequest] {
+  public class var requests:[NSURLRequest] {
     get {
-      return _stubbedRequests
-    }
-  }
-  
-  public class var unstubbedRequests:[NSURLRequest] {
-    get {
-      return _unstubbedRequests
+      return _requests
     }
   }
   
@@ -90,8 +83,7 @@ public class MockingjayProtocol : NSURLProtocol {
   }
   
   class func clearRequests() {
-    _unstubbedRequests.removeAll()
-    _stubbedRequests.removeAll()
+    _requests.removeAll()
   }
 
   // MARK: NSURLProtocol
@@ -106,9 +98,8 @@ public class MockingjayProtocol : NSURLProtocol {
   }
 
   override public func startLoading() {
+    _requests.append(request)
     if let stub = MockingjayProtocol.stubForRequest(request) {
-      _stubbedRequests.append(request)
-      
       switch stub.builder(request) {
       case .Failure(let error):
         client?.URLProtocol(self, didFailWithError: error)
@@ -138,7 +129,6 @@ public class MockingjayProtocol : NSURLProtocol {
         }
       }
     } else {
-      _unstubbedRequests.append(request)
       let error = NSError(domain: NSInternalInconsistencyException, code: 0, userInfo: [ NSLocalizedDescriptionKey: "Handling request without a matching stub." ])
       client?.URLProtocol(self, didFailWithError: error)
     }

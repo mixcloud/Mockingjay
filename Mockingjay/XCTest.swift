@@ -15,15 +15,9 @@ var AssociatedMockingjayRemoveStubOnTearDownHandle: UInt8 = 0
 extension XCTest {
   // MARK: Stubbing
 
-  public var stubbedRequests:[NSURLRequest] {
+  public var requests:[NSURLRequest] {
     get {
-      return MockingjayProtocol.stubbedRequests
-    }
-  }
-  
-  public var unstubbedRequests:[NSURLRequest] {
-    get {
-      return MockingjayProtocol.unstubbedRequests
+      return MockingjayProtocol.requests
     }
   }
   
@@ -72,10 +66,6 @@ extension XCTest {
     
     if mockingjayRemoveStubOnTearDown {
       MockingjayProtocol.removeAllStubs()
-      
-      //Confirm that there are no requests made that weren't stubbed on
-      //tear down.
-      XCTAssertEqual(0, unstubbedRequests.count)
       MockingjayProtocol.clearRequests()
     }
   }
