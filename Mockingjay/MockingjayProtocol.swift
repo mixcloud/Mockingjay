@@ -27,12 +27,19 @@ public func ==(lhs:Stub, rhs:Stub) -> Bool {
 }
 
 var stubs = [Stub]()
+var __requests = [NSURLRequest]()
 
 public class MockingjayProtocol : NSURLProtocol {
   // MARK: Stubs
   private var enableDownloading = true
   private let operationQueue = NSOperationQueue()
-
+  
+  public class var requests:[NSURLRequest] {
+    get {
+      return __requests
+    }
+  }
+  
   class func addStub(stub:Stub) -> Stub {
     stubs.append(stub)
 
@@ -74,6 +81,10 @@ public class MockingjayProtocol : NSURLProtocol {
 
     return nil
   }
+  
+  class func clearRequests() {
+    __requests.removeAll()
+  }
 
   // MARK: NSURLProtocol
 
@@ -88,6 +99,8 @@ public class MockingjayProtocol : NSURLProtocol {
 
   override public func startLoading() {
     if let stub = MockingjayProtocol.stubForRequest(request) {
+      __requests.append(request)
+      
       switch stub.builder(request) {
       case .Failure(let error):
         client?.URLProtocol(self, didFailWithError: error)
