@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6C25B371DC66ADF4587F56D8CF85DD31480F6F3F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2202450528CFA50DD806F0340B3987713E89BFB6" : 0,
+    "6C25B371DC66ADF4587F56D8CF85DD31480F6F3F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BA81BA3E-9E7F-4099-A2EA-2EC33CD29BD8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2202450528CFA50DD806F0340B3987713E89BFB6" : "Mockingjay\/URITemplate\/",
+    "6C25B371DC66ADF4587F56D8CF85DD31480F6F3F" : "Mockingjay\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Mockingjay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Mockingjay.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kylef\/URITemplate.swift",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2202450528CFA50DD806F0340B3987713E89BFB6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mixcloud\/Mockingjay.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6C25B371DC66ADF4587F56D8CF85DD31480F6F3F"
+    }
+  ]
+}

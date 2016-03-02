@@ -15,6 +15,12 @@ var AssociatedMockingjayRemoveStubOnTearDownHandle: UInt8 = 0
 extension XCTest {
   // MARK: Stubbing
 
+  public var requests:[NSURLRequest] {
+    get {
+      return MockingjayProtocol.requests
+    }
+  }
+  
   /// Whether Mockingjay should remove stubs on teardown
   public var mockingjayRemoveStubOnTearDown: Bool {
     get {
